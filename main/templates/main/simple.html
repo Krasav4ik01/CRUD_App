@@ -1,0 +1,6 @@
+{% for r in menu%}
+    <div style="clear: left;">
+        <li class="active"><a href="{{r.url}}">{{r.title}}</a>
+    <a href="{% url  'news-detail'  r.url %}" >  <button class="btn btn-success">More details</button></a>
+    </div>
+    {%endfor%}
