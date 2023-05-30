@@ -3,7 +3,17 @@ from main.models import *
 
 register = template.Library()
 
+@register.simple_tag()
+def get_categories():
+    return News.objects.all()
+
 @register.inclusion_tag('main/simple.html')
-def draw_menu():
-    menu = MenuItem.objects.all()
-    return {"menu": menu}
+def show_categories():
+    cats = Heroes.objects.all()
+    return {"cats": cats}
+
+
+@register.inclusion_tag('main/simple_writers.html')
+def show_categories_for_writers():
+    cats = Writers.objects.all()
+    return {"cats": cats}
