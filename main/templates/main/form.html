@@ -8,17 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     {% comment %} <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> {% endcomment %}
     {% load static %}
-    <link type="text/css" href="{% static 'main/css/styles.css' %}"  rel = "stylesheet"  />
-    </head>
-    {% include 'main/banner.html'%}
+        <link type="text/css" href="{% static 'main/css/projectdesign.css' %}"  rel = "stylesheet"  />
+</head>
+
+<body>
+{% include 'main/banner.html'%}
 
       {% load static %}
     <link type="text/css" href="{% static 'main/css/womendesign.css' %}"  rel = "stylesheet"  />
         {% load static %}
         <link type="text/css" href="{% static 'main/css/formstyle.css' %}"  rel = "stylesheet"  />
 
-</head>
-<body>
     {%get_categories as posts%}
 {%for i in posts%}
 <div id = "Read">

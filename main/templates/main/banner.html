@@ -29,7 +29,7 @@
          
 
         <div style="margin-left:700px"><span class="hello-msg"><a href=""> {{request.user}}</a> </span>
-            <span><a class="hello-msg" href="{% url 'logout' %}">Шығу</a></span>
+            <span><a class="hello-msg logout" href="{% url 'logout' %}">Шығу</a></span>
         </div>
 
         
@@ -41,16 +41,16 @@
 <style>
 .hello-msg {
 font-size: small;
-color: black;
+color: #333333;
 padding: 0px;
 margin-left: 1px;
 margin-right: 2px;
 }
 .banner{
-    background-color: rgb(197, 156, 104);
+    background-color: rgb(48, 208, 234);
 }
 body{
-    background-color: rgb(221, 215, 206);
+    background-color: rgb(198, 234, 229);
 }
 a{
     text-decoration: none;

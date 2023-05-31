@@ -41,8 +41,7 @@ def loginPage(request):
 			else:
 				messages.info(request, 'Username OR password is incorrect')
                     
-		context = {}
-		return render(request, 'main/login.html', context)
+		return render(request, 'main/login.html')
 
 
 def logoutUser(request):
@@ -74,7 +73,7 @@ def registerPage(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 
-def index(request):
+def anotherUploadFunc(request):
     
     if request.method == "POST":
         form = FileForm(data=request.POST,files=request.FILES)
@@ -90,7 +89,7 @@ def index(request):
 
 
 
-def main(request):
+def mainPage(request):
     var = Labours.objects.all()
     return render(request, 'main/main.html', {'var': var})
 
@@ -98,7 +97,7 @@ def main(request):
 
 
 @login_required(login_url='login')
-def heroes(request):
+def heroesPage(request):
     inf = Heroes.objects.all()
     return render(request, 'main/heroes.html', {'inf2': inf})
 
@@ -108,21 +107,21 @@ def heroes(request):
 #     return render(request, 'main/simple.html', {'inf2': inf})
 
 @login_required(login_url='login')
-def writers(request):
+def writersPage(request):
     infw = Writers.objects.all()
     return render(request, 'main/writers.html', {'infw': infw})
 
 
 # @allowed_users(allowed_roles=['manager'])
 
-def form(request):
+def newsPage(request):
     post = News.objects.all()
     return render(request, 'main/form.html', {'post': post})
 
 @login_required(login_url='login')
 # @allowed_users(allowed_roles=['manager'])
 
-def news_home(request):
+def addNews(request):
     error = ' '
     if request.method == 'POST':
         form = NewsForm(request.POST)
@@ -176,23 +175,18 @@ def update_news(request, post_slug):
     context = {'form':form}
     return render(request, 'main/news_home.html', context)
 
-def delete(request, post_slug):
-    al = News.objects.get(slug=post_slug)
-    al.delete()
+def delete_news(request, post_slug):
+    news = News.objects.get(slug=post_slug)
+    news.delete()
     return redirect("new")
 
 
-def forupload(request):
+def uploadVideo(request):
     video = Post.objects.all()
 
     return render(request, 'main/forupload.html', {'video' : video})
 
-def userPage(request):
-    context={}
-    return render(request, 'main/user.html', context)
 
-def managerPage(request):
-    return render(request, 'main/manager.html')    
 
 
 def contact(request):
